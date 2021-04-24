@@ -35,6 +35,7 @@ def start(data):
     print(f"Your deck is: {str(DECK)}")
     sio.emit("deck_receive", {"player_id": PLAYER_ID, "sid": sio.sid, "landlord_id":data["landlord"], "deck":DECK})
 
+
 def isValid(play):
     global INDEX_DECK
 
@@ -128,7 +129,6 @@ def play(data):
 
                 if not in_deck:
                     continue
-
 
                 break
 
@@ -240,5 +240,5 @@ def queue(data):
 
 if __name__ == "__main__":
     name = input("Enter your name: ")
-    sio.connect("https://bowenfeng.pythonanywhere.com/")
+    sio.connect("https://online-card-game.herokuapp.com/")
     sio.emit("join_room", {"sid": sio.sid, "name": name})
